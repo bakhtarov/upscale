@@ -1,0 +1,26 @@
+.container {
+	position: relative;
+	top: 40px;
+	left: 50%;
+	margin: 0 0 0 -60px;
+}
+
+table  {
+	border-collapse: collapse;
+	border-radius: 10px;
+}
+
+td 	{ 
+	width: 40px;
+	height: 40px;
+}
+
+tr:nth-child(even) {
+	border-top: 5px solid black;
+	border-bottom: 5px solid black;
+}
+
+td:nth-child(even) {
+	border-left: 5px solid black;
+	border-right: 5px solid black;	
+}
