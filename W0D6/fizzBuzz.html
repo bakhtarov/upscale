@@ -22,10 +22,10 @@
       for (var i = 1; i <= val; i++) {
       	arr.push(callback(i));
       }
-      alert( arr.join(", ") );      
+      return arr;      
     }
   }
-  fizzBuzz(fizzOrBuzz)
+  alert( fizzBuzz(fizzOrBuzz).join(", ") );
 
 
 </script>
