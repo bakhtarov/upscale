@@ -10,27 +10,12 @@
 <body>
 <script>
 
-   //I have been starting getting acquainted with callback function, can it be considerate as a callback function?
+
   function poppingUp (callback) {
    var val = +prompt('type your value', 15);
    alert( callback(val) );
   }
 
-
-  // function fizzBuzz (callback) {
-  // 	var arr = [];
-  // 	var val = parseInt(prompt('type your value', 15));
-
-  //   if ( isNaN(val) ) {
-  //     alert( "sorry, but your input isn't a number" );
-  //   } else {
-  //     for (var i = 1; i <= val; i++) {
-  //     	arr.push(callback(i));
-  //     }
-  //     alert( arr.join(", ") );      
-  //   }
-  // }
-  // fizzBuzz(fizzOrBuzz)
 	poppingUp(fizzOrBuzz);
 
 
