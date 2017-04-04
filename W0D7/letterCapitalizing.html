@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Capitalizing</title>
+  <style type="text/css" ></style>
+
+</head>
+<body>
+<script>
+
+
+
+//somekind of algorithm:
+
+//   declare new fucntion, that takes in a string as a parameter, 
+//   in the body of the function:
+//   declare new empty array named "result";
+//   initialize to a new variable the result of invoking built-in method .split(), use white space as a parameter, which returns an array which elements are an every single word of the string
+//   invoke for loop, starts from 0 up to the length of the array. Every iteration of which will push into array "results" following:
+// invoke method ".charAt()" on i's element of arr array, that takes in "0"  as a parameter, which refer to the index, and returns first letter of the i's element variable, then make this letter capitalized via invoking on it .toUpperCase() built-in method. Then concatenate to the first capitalized character the rest of the string, which we are getting via invoking on i's array's element .slice() method which take in "1" as a parameter (that refers to the start slicing character index) and returns the whole str string of i's element except first character.
+// return a string obtained by invoking .join() method on the array "result" and set in white space (" ") as a parameter
+
+
+//pseudo code
+
+// procedure titleCase(string)
+// new empty array
+
+// string <- splits string use white space
+
+// for each (word in new string)
+// ( word <- first letter uppercase + slice rest of the string )
+// return new string with white space
+
+
+function capitalize (str) {
+    // var str = str.replace(/\s\i\s/gm, " I ");
+    var result = [];
+    var arr = str.split(" ");
+
+    for (var i = 0; i < arr.length; i++ ) {
+      result.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1));
+    }
+    return result.join(" ");
+  
+}
+
+
+
+alert( capitalize('whatever challenging the task seems to you at first glance, just do it step by step, i tell you, even an elephant is eaten by small pieces ') );
+
+	
+
+
+</script>
+</body>
+</html>
