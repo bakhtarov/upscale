@@ -19,15 +19,30 @@ window.onload = function () {
 	function combo (x, y, z) {
 		//x, y, z parameters form a row (horizontal, vertical, or diagonal) 
 		//and return true if all values in row are equal 
-		return 	tdArr[x].innerHTML.length && 
+		if  	(tdArr[x].innerHTML.length && 
 				tdArr[x].innerHTML == tdArr[y].innerHTML &&
-				tdArr[y].innerHTML == tdArr[z].innerHTML;
+				tdArr[y].innerHTML == tdArr[z].innerHTML) {
+			return tdArr[x].innerHTML;
+		} else {
+			return false;
+		}
 	}
 
 	function check () {
-		//returns true if values of any line match
- 		return combo(0, 1, 2) || combo(3, 4, 5) || combo(6, 7, 8) || combo(0, 3, 6) ||
-						combo(1, 4, 7) || combo(2, 5, 8) || combo(0, 4, 8) || combo(2, 6, 4);
+		//returns value of the winner
+		if (combo(0, 1, 2)) { return combo(0, 1, 2);
+		} else if (combo(3, 4, 5)) { return combo(3, 4, 5);
+		} else if (combo(6, 7, 8)) { return combo(6, 7, 8);
+		} else if (combo(0, 3, 6)) { return combo(0, 3, 6);
+		} else if (combo(1, 4, 7)) { return combo(1, 4, 7);
+		} else if (combo(2, 5, 8)) { return combo(2, 5, 8);
+		} else if (combo(0, 4, 8)) { return combo(0, 4, 8);
+		} else if (combo(2, 6, 4)) { return combo(2, 6, 4);
+		} else { return false; }
+
+
+ 		// return combo(0, 1, 2) || combo(3, 4, 5) || combo(6, 7, 8) || combo(0, 3, 6) ||
+						// combo(1, 4, 7) || combo(2, 5, 8) || combo(0, 4, 8) || combo(2, 6, 4);
 	}
 
 	function cleanUp () {
@@ -36,7 +51,7 @@ window.onload = function () {
 				counter = 1;
 		}
 	}
-	
+
 	function tie () {
 		var filled = true;
 		for (var j = 0; j < tdArr.length; j++) {
@@ -69,16 +84,22 @@ window.onload = function () {
 			 				if (counter % 2) {
 			 					counter++;
 								this.innerHTML = 'X';
+								//alert a winner right after click
+								if (check()) {
+									// alert("we've got a winner".toUpperCase());
+									alert(check() + " - winner");
+								} 
 							} else {
 			 					counter++;
 								this.innerHTML = 'O';
+								//alert a winner right after click
+								if (check()) {
+									alert(check() + " - winner");
+								// alert(check() + " - winner");
+								} 
 							}
-							//alert a winner right after click
-							if (check()) {
-								alert("we've got a winner".toUpperCase());
-							} 
-							//check if all cells are filled 
-							if (tie()) {
+							//check if all cells are filled and there is no winner
+							if (tie() &&  !check()) {
 								alert("it's a draw =/");
 							}
 						//prevent click on existing x/o:
@@ -86,7 +107,7 @@ window.onload = function () {
 							i--;
 						}
 					}
-				});
+				}, true);
 
 				tdArr[i].addEventListener('mouseover', function  () {
 					this.style.cursor = 'pointer';
