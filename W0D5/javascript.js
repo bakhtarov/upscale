@@ -1,10 +1,13 @@
 window.onload = function () { 
 	var tdArr = document.getElementsByTagName('td');
-	// var radArr = document.getElementsByTagName('input');
+	var interact = document.getElementById('inter');
+
+
 
 	function id (id) {
 		return document.getElementById(id);
 	}
+
 	var newGame = id("start"),
 		restart = id("restart"),
 		friend = id('friend'),
@@ -15,6 +18,12 @@ window.onload = function () {
 
 	newGame.addEventListener('click', fillIn);
 	restart.addEventListener('click', cleanUp);
+
+	var comboArr = [
+		[0, 1, 2], [2, 5, 8], [8, 7, 6], [6, 3, 0],
+		[0, 4, 8], [6, 4, 2],
+		[1, 4, 7], [3, 4, 5]
+	]
 
 	function combo (x, y, z) {
 		//x, y, z parameters form a row (horizontal, vertical, or diagonal) 
@@ -49,6 +58,7 @@ window.onload = function () {
 		for (var i = 0; i < tdArr.length; i++) {
 				tdArr[i].innerHTML = '';
 				counter = 1;
+				interact.innerHTML = "";
 		}
 	}
 
@@ -74,7 +84,7 @@ window.onload = function () {
 				tdArr[i].addEventListener('click', function (e) {
 					// check if any line is completed 	
 					if (check()) {
-						 alert("game over! we already have a winner".toUpperCase());
+						 interact.innerHTML = check() + " - winner";
 						 e.preventDefault(); 
 					// } else if () {
 
@@ -87,20 +97,20 @@ window.onload = function () {
 								//alert a winner right after click
 								if (check()) {
 									// alert("we've got a winner".toUpperCase());
-									alert(check() + " - winner");
+									interact.innerHTML = check() + " - winner";
 								} 
 							} else {
 			 					counter++;
 								this.innerHTML = 'O';
 								//alert a winner right after click
 								if (check()) {
-									alert(check() + " - winner");
+									interact.innerHTML = check() + " - winner";
 								// alert(check() + " - winner");
 								} 
 							}
 							//check if all cells are filled and there is no winner
 							if (tie() &&  !check()) {
-								alert("it's a draw =/");
+								interact.innerHTML = "it's a draw =/";
 							}
 						//prevent click on existing x/o:
 						} else {
@@ -114,25 +124,20 @@ window.onload = function () {
 				});
 			}
 			
-		} else if (cross.checked) {
-			for (var i = 0; i < tdArr.length; i++) {
-				tdArr[i].addEventListener('click', function (e) {
-					this.innerHTML = 'X';
-				})
-			}
 		} else {
 			for (var i = 0; i < tdArr.length; i++) {
+
+				tdArr[i]
 				tdArr[i].addEventListener('click', function (e) {
-					this.innerHTML = 'O';
+					this.innerHTML = 'X';
+
 				})
 				tdArr[i].addEventListener('mouseover', function  () {
 					this.style.cursor = 'pointer';
-					// this.style.color = 'brown';
 				})
 
-				// tdArr[i].addEventListener('mouseout', function  () {
-				// 	this.style.color = '';
-				// })
+
+
 			}
 		}		
 	}

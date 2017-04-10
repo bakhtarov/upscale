@@ -8,10 +8,10 @@ body {
 }
 
 .container {
-	position: relative;
+	position: absolute;
 	display: block;
 	clear: both;
-	top: 50px;
+	top: 150px;
 	left: 50%;
 	width: 450px;
 	padding: 0;
@@ -19,7 +19,8 @@ body {
 }
 
 .radio {
-	top: 30px;
+	font-family: Courier;
+	top: 15px;
 	text-align: center;
 }
 
@@ -27,25 +28,30 @@ body {
 	position: relative;
 	display: inline-block;
 	text-align: center;
-	top: 40px;
+	top: 25px;
 	left: 50%;
-	width: 200px;
-	margin: 0 0 0 -100px;
+	width: 250px;
+	margin: 0 0 0 -125px;
+	
 	/*border: 3px solid black;*/
 }
 
 
 #start {
 	float: left;
-	width: 90px;
+	width: 110px;
 }
 
 #restart {
 	float: right;
-	width: 90px;
+	width: 110px;
 }
 
 
+p {
+	font-size: 3em;
+	color: white;
+}
 
 
 table  {
