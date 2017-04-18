@@ -1,8 +1,5 @@
 window.onload = function () { 
 	var tdArr = document.getElementsByTagName('td');
-	var interact = document.getElementById('inter');
-
-
 
 	function id (id) {
 		return document.getElementById(id);
@@ -10,6 +7,7 @@ window.onload = function () {
 
 	var newGame = id("start"),
 		restart = id("restart"),
+		interact = id('inter'),
 		friendsRadio = id('friendsGame'),
 		aiRadio = id('aiGame'),
 		counter = 1;
@@ -25,7 +23,9 @@ window.onload = function () {
 	];
 
 	var scenario = [[0, 4, 1, 2, 6, 3, 5, 7, 8],
+					
 					[0, 4, 3, 6, 2, 1, 5, 7], 
+
 					[0, 4, 1, 2, 6, 3, 7, 5],
 					[0, 4, 1, 2, 6, 3, 8, 5],
 					[0, 4, 1, 2, 3, 6],
